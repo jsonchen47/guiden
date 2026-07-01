@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Guiden",
+    "slug": "guiden",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.guiden.app"
+    },
+    "android": {
+      "package": "com.guiden.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F3EA"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

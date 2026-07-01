@@ -1,0 +1,12 @@
+[build]
+  command = "EXPO_NO_TELEMETRY=1 CI=1 npx expo export --platform web --clear"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  included_files = ["src/data/stories.ts"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
