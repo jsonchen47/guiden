@@ -453,7 +453,7 @@ function HomeScreen({
             <Text style={styles.heroTitleItalic}>See what helped others.</Text>
           </Text>
           <Text style={styles.heroCopy}>
-            Search lived experiences, from everyday low moods to bigger turning points, and spot the patterns that helped people feel steadier.
+            Search lived experiences, from everyday low moods to bigger turning points, and spot the patterns that helped people feel better.
           </Text>
           <View style={[styles.searchBox, compact && styles.searchBoxCompact]}>
             <TextInput
@@ -1375,6 +1375,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.green
   },
   heroInner: {
+    alignItems: "center",
     alignSelf: "center",
     maxWidth: 980,
     width: "100%"
@@ -1402,7 +1403,7 @@ const styles = StyleSheet.create({
   heroTitleCompact: {
     fontSize: 40,
     lineHeight: 47,
-    textAlign: "left"
+    textAlign: "center"
   },
   heroCopy: {
     alignSelf: "center",
