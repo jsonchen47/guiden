@@ -10,7 +10,7 @@ const provider = process.env.GUIDEN_LLM_PROVIDER || "ollama";
 const model =
   process.env.GUIDEN_LLM_MODEL ||
   process.env.OLLAMA_MODEL ||
-  (provider === "gemini" ? "gemini-3.5-flash" : "llama3.2:3b");
+  (provider === "gemini" ? "gemini-3.1-flash-lite" : "llama3.2:3b");
 const ollamaUrl = process.env.OLLAMA_URL || "http://127.0.0.1:11434";
 
 const patternSchema = {

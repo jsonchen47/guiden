@@ -37,7 +37,7 @@ Gemini is the easiest hosted/free-tier option for this prototype.
 GUIDEN_LLM_PROVIDER=gemini GEMINI_API_KEY=your_key_here npm run llm-search
 ```
 
-The default Gemini model is `gemini-3.5-flash`. To choose another model:
+The default Gemini model is `gemini-3.1-flash-lite` because it is optimized for lower latency. To choose another model:
 
 ```sh
 GUIDEN_LLM_PROVIDER=gemini GUIDEN_LLM_MODEL=gemini-3.1-flash-lite GEMINI_API_KEY=your_key_here npm run llm-search
@@ -113,7 +113,7 @@ GEMINI_API_KEY=your_key_here
 Optional model override:
 
 ```sh
-GUIDEN_LLM_MODEL=gemini-3.5-flash
+GUIDEN_LLM_MODEL=gemini-3.1-flash-lite
 ```
 
 When hosted, the app calls `/.netlify/functions/search`. Locally, it still calls `http://127.0.0.1:8787/api/search`.

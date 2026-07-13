@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-const model = process.env.GUIDEN_LLM_MODEL || "gemini-3.5-flash";
+const model = process.env.GUIDEN_LLM_MODEL || "gemini-3.1-flash-lite";
 
 const patternSchema = {
   type: "OBJECT",
