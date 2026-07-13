@@ -87,7 +87,7 @@ function selectRelevantStories(stories, query, storyIds = []) {
       return { story, score: termScore + requestedBoost };
     })
     .sort((a, b) => b.score - a.score)
-    .slice(0, 14)
+    .slice(0, 8)
     .map(({ story }) => ({
       id: story.id,
       title: story.title,
@@ -95,7 +95,7 @@ function selectRelevantStories(stories, query, storyIds = []) {
       tags: story.tags,
       whatHelped: story.whatHelped,
       excerpt: story.excerpt,
-      story: String(story.story).slice(0, 550)
+      story: String(story.story).slice(0, 320)
     }));
 }
 
@@ -117,7 +117,7 @@ function buildAnalysisMessages({ query, selectedStories }) {
       content:
         "User query: " +
         query +
-        "\n\nReturn JSON exactly like this: {\"summary\":\"one sentence recommending the strongest evidence-backed next idea\", \"patterns\":[{\"label\":\"reach out to friends more often\", \"description\":\"why this concrete action may help, based on these stories\", \"count\":3, \"percent\":21, \"examples\":[\"support system\"], \"evidence\":\"short paraphrase\"}]}. Return 3 to 5 recommendations, ranked by how many provided stories support them AND how relevant they are to the user's exact query. Labels must be concrete actions that complete the sentence 'you could try to ...'. Avoid vague labels like support, mindset, routine, or treatment. Avoid recommendations that introduce unrelated issues. For example, do not recommend sobriety, medication changes, trauma work, or diagnosis-specific treatment unless the user mentioned that topic or the matching stories overwhelmingly and directly support it; if included, make the label conditional, like 'if substance use is part of this, reduce alcohol or cannabis'. Count only the records below. sampleSize=" +
+        "\n\nReturn JSON exactly like this: {\"summary\":\"one sentence recommending the strongest evidence-backed next idea\", \"patterns\":[{\"label\":\"reach out to friends more often\", \"description\":\"why this concrete action may help, based on these stories\", \"count\":3, \"percent\":21, \"examples\":[\"support system\"], \"evidence\":\"short paraphrase\"}]}. Return 3 to 5 concrete recommendations ranked by evidence count and relevance to the query. Avoid unrelated issues; do not mention sobriety, medication changes, trauma work, or diagnosis-specific treatment unless the user mentioned it or the stories overwhelmingly support it. Count only the records below. sampleSize=" +
         selectedStories.length +
         "\n\nStories:\n" +
         JSON.stringify(prompt)

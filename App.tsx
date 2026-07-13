@@ -203,6 +203,15 @@ function getLlmSearchUrl() {
   return "/.netlify/functions/search";
 }
 
+function isHostedDemo() {
+  if (Platform.OS !== "web" || typeof window === "undefined") {
+    return false;
+  }
+
+  const hostname = window.location.hostname;
+  return hostname !== "localhost" && hostname !== "127.0.0.1";
+}
+
 function includesPatternTerm(text: string, term: string) {
   const normalizedTerm = normalizeText(term).trim();
   if (!normalizedTerm) return false;
@@ -712,6 +721,7 @@ function SearchScreen({
             summary={llmSummary}
             provider={llmProvider}
             model={llmModel}
+            hosted={isHostedDemo()}
           />
           <SectionHeader title="Closest matches" subtitle={`${results.length} stories ranked by shared language and themes.`} />
           <View style={[styles.cardGrid, compact && styles.singleColumn]}>
@@ -739,7 +749,8 @@ function PatternInsights({
   status,
   summary,
   provider,
-  model
+  model,
+  hosted
 }: {
   error: string;
   fallbackInsights: PatternInsight[];
@@ -749,6 +760,7 @@ function PatternInsights({
   summary: string;
   provider: string;
   model: string;
+  hosted: boolean;
 }) {
   const [loadingDots, setLoadingDots] = useState(".");
   const visibleInsights = status === "ready" && insights.length > 0 ? insights : fallbackInsights;
@@ -775,7 +787,7 @@ function PatternInsights({
           <Text style={styles.infoTitle}>Asking Gemini{loadingDots}</Text>
         </View>
         <Text style={styles.bodyCopy}>
-          Guiden is sending a matched set of similar stories to the local LLM search server and asking it for concrete, evidence-backed suggestions.
+          Guiden is sending a matched set of similar stories to {hosted ? "the hosted Gemini function" : "the local LLM search server"} and asking it for concrete, evidence-backed suggestions.
         </Text>
         <View style={styles.loadingDotsRow}>
           {[0, 1, 2].map((index) => (
@@ -820,8 +832,10 @@ function PatternInsights({
         <View style={styles.warningBox}>
           <Text style={styles.warningText}>
             {provider
-              ? `The local API server is running with ${provider}${model ? ` (${model})` : ""}, but the model response could not be used.`
-              : "The local API server is not connected yet. Start it with npm run llm-search."}{" "}
+              ? `${hosted ? "The hosted Gemini function" : "The local API server"} is running with ${provider}${model ? ` (${model})` : ""}, but the model response could not be used.`
+              : hosted
+                ? "The hosted Gemini function is not responding yet. Check the Netlify Function logs and make sure GEMINI_API_KEY is set."
+                : "The local API server is not connected yet. Start it with npm run llm-search."}{" "}
             {error}
           </Text>
         </View>

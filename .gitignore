@@ -1,6 +1,7 @@
 node_modules/
 .expo/
 dist/
+outputs/
 .DS_Store
 .env
 .env.*
