@@ -310,7 +310,7 @@ export default function App() {
     const story: Story = {
       id: `community-${Date.now()}`,
       sourceUrl: "",
-      subreddit: "Guiden",
+      subreddit: "Oomi",
       title: draft.title.trim(),
       authorName: draft.anonymous ? "Anonymous" : "CommunityMember",
       category: draft.categories[0] || "Other",
@@ -410,7 +410,7 @@ function SiteHeader({
         <View style={styles.logoMark}>
           <Feather name="compass" size={18} color="#F5F3EE" />
         </View>
-        <Text style={styles.brand}>Guiden</Text>
+        <Text style={styles.brand}>Oomi</Text>
       </Pressable>
       <View style={[styles.nav, compact && styles.navCompact]}>
         <Pressable accessibilityRole="button" onPress={() => navigate({ name: "home" })} style={itemStyle(page.name === "home")}>
@@ -676,7 +676,7 @@ function SearchScreen({
       </View>
       <Text style={styles.pageTitle}>AI Search</Text>
       <Text style={styles.pageIntro}>
-        Describe how you feel in natural language. Guiden sends similar stories to an LLM, which turns repeated helpful actions into evidence-backed suggestions.
+        Describe how you feel in natural language. Oomi sends similar stories to an LLM, which turns repeated helpful actions into evidence-backed suggestions.
       </Text>
       <View style={[styles.searchPanelCompact, compact && styles.searchPanelCompactMobile]}>
         <TextInput
@@ -787,7 +787,7 @@ function PatternInsights({
           <Text style={styles.infoTitle}>Asking Gemini{loadingDots}</Text>
         </View>
         <Text style={styles.bodyCopy}>
-          Guiden is sending a matched set of similar stories to {hosted ? "the hosted Gemini function" : "the local LLM search server"} and asking it for concrete, evidence-backed suggestions.
+          Oomi is sending a matched set of similar stories to {hosted ? "the hosted Gemini function" : "the local LLM search server"} and asking it for concrete, evidence-backed suggestions.
         </Text>
         <View style={styles.loadingDotsRow}>
           {[0, 1, 2].map((index) => (
@@ -812,7 +812,7 @@ function PatternInsights({
           <Text style={styles.infoTitle}>LLM pattern summary</Text>
         </View>
         <Text style={styles.bodyCopy}>
-          Guiden did not find a strong repeated pattern yet. Try describing the feeling, situation, and anything you have already tried.
+          Oomi did not find a strong repeated pattern yet. Try describing the feeling, situation, and anything you have already tried.
         </Text>
       </View>
     );
@@ -1046,7 +1046,7 @@ function StoryDetail({
         </View>
         <Text style={[styles.detailTitle, compact && styles.detailTitleCompact]}>{story.title}</Text>
         <Text style={styles.byline}>
-          {story.authorName} - {story.readMinutes} min read - {story.subreddit || "Guiden"}
+          {story.authorName} - {story.readMinutes} min read - {story.subreddit || "Oomi"}
         </Text>
         <Pressable accessibilityRole="button" style={styles.helpfulButton}>
           <Feather name="thumbs-up" size={17} color="#1E2820" />
@@ -1258,7 +1258,7 @@ function SiteFooter({ compact }: { compact: boolean }) {
       </View>
       <View style={styles.footerColumn}>
         <Text style={styles.footerTitle}>About</Text>
-        <Text style={styles.footerText}>Guiden is a community-driven platform sharing real experiences of recovery and resilience.</Text>
+        <Text style={styles.footerText}>Oomi is a community-driven platform sharing real experiences of recovery and resilience.</Text>
       </View>
       <View style={styles.footerColumn}>
         <Text style={styles.footerTitle}>Important Disclaimer</Text>

@@ -1,6 +1,6 @@
-# Guiden
+# Oomi
 
-Guiden is a cross-platform iOS and Android prototype for sharing and discovering mental-health recovery testimonies.
+Oomi is a cross-platform iOS and Android prototype for sharing and discovering mental-health recovery testimonies.
 
 The current website prototype includes:
 

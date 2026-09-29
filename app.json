@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Guiden",
-    "slug": "guiden",
+    "name": "Oomi",
+    "slug": "oomi",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -10,10 +10,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.guiden.app"
+      "bundleIdentifier": "com.oomi.app"
     },
     "android": {
-      "package": "com.guiden.app",
+      "package": "com.oomi.app",
       "adaptiveIcon": {
         "backgroundColor": "#F7F3EA"
       }
